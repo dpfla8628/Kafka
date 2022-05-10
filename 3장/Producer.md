@@ -42,3 +42,12 @@ public class SimpleProducer {
 ./kafka-console-consumer.sh --bootstrap-server 카프카서버:9092 --topic test --from-beginning
 // => testMessage
 ```
+
+## 메시지 키를 가진 데이터를 전송하는 프로듀서
+```
+ProducerRecord<String, String> record = new ProducerRecord<>(TOPIC_NAME, messageKey, messageValue);
+```
+```
+./kafka-console-consumer.sh --bootstrap-server 카프카서버:9092 --topic test --property print.key = true --property key.seperator="-" --from-beginning
+// => key-value
+```
